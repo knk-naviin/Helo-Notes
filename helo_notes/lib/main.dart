@@ -20,14 +20,13 @@ void main() async {
       '/userscreen': (BuildContext context) => UserAuthScreen(),
     },
     debugShowCheckedModeBanner: false,
-
     home: AnimatedSplashScreen(
       centered: true,
       pageTransitionType: PageTransitionType.fade,
       animationDuration: uid != null
           ? Duration(milliseconds: 200)
           : Duration(milliseconds: 1500),
-      duration:  uid != null? 200:500,
+      duration: uid != null ? 200 : 500,
       splashIconSize: 500,
       splash: Image.asset(
         "images/logobig.jpeg",
@@ -52,35 +51,32 @@ class _LaunchScreenState extends State<LaunchScreen> {
     var uid = FirebaseAuth.instance.currentUser?.uid;
     if (uid == null) {
       return UserAuthScreen();
-    }else {
-      return Dashboard();
+    } else {
+      return FutureBuilder(
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Scaffold(
+            backgroundColor: Colors.white70,
+            body: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Platform.isAndroid
+                    ? CircularProgressIndicator()
+                    : CupertinoActivityIndicator(
+                        animating: true,
+                      ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Loading"),
+                )
+              ],
+            )),
+          );
+        } else {
+          return Dashboard();
+        }
+      });
     }
-  //   } else {
-  //     return FutureBuilder(
-  //   builder: (BuildContext context, AsyncSnapshot<Profile?> snapshot) {
-  //   if (snapshot.connectionState == ConnectionState.waiting) {
-  //     return Scaffold(
-  //       backgroundColor: Colors.white70,
-  //       body: Center(
-  //           child: Column(
-  //             mainAxisAlignment: MainAxisAlignment.center,
-  //             children: [
-  //               Platform.isAndroid
-  //                   ? CircularProgressIndicator()
-  //                   : CupertinoActivityIndicator(
-  //                 animating: true,
-  //               ),
-  //               Padding(
-  //                 padding: const EdgeInsets.all(8.0),
-  //                 child: Text("Loading"),
-  //               )
-  //             ],
-  // )
-  //       ),
-  //     );
-  //   }
-  //         }
-  //         );
-  //   }
   }
 }

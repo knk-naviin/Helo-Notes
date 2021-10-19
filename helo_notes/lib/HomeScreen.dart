@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
+      appBar: AppBar(elevation: 0,
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(

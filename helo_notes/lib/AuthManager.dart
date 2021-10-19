@@ -38,6 +38,6 @@ Future<void> addUserToFirestore() async {
     "photo_url" : photourl
 
   }
-
   );
 }
+
