@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "739315376578",
+    "project_id": "helo-notes",
+    "storage_bucket": "helo-notes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739315376578:android:5bfb538adf35f898a6365b",
+        "android_client_info": {
+          "package_name": "com.yaash.helo_notes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739315376578-ivhdo40kio94euq2vgfhi92dq7tdb4i0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yaash.helo_notes",
+            "certificate_hash": "d8530df018fb58daf5c9bc0768398328afb3c3ba"
+          }
+        },
+        {
+          "client_id": "739315376578-gs3ar7f4cla6f84d30nbgdjc1ikea2eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvp17yF0_iV5UUXeKgorCZE7X_QOpPSB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739315376578-gs3ar7f4cla6f84d30nbgdjc1ikea2eb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
