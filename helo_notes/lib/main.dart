@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:helo_notes/Dashboard.dart';
+import 'package:helo_notes/HomeScreen.dart';
 import 'UserAuthScreen.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -16,7 +16,7 @@ void main() async {
 
   runApp(MaterialApp(
     routes: <String, WidgetBuilder>{
-      '/dashboard': (BuildContext context) => Dashboard(),
+      '/dashboard': (BuildContext context) => HomeScreen(),
       '/userscreen': (BuildContext context) => UserAuthScreen(),
     },
     debugShowCheckedModeBanner: false,
@@ -74,7 +74,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
             )),
           );
         } else {
-          return Dashboard();
+          return HomeScreen();
         }
       });
     }

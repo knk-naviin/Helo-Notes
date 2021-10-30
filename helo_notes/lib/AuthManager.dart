@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:core';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 
@@ -24,20 +23,8 @@ Future<UserCredential?> signInWithGoogle() async {
   }
 }
 
-CollectionReference userRef = FirebaseFirestore.instance.collection("user");
 
-Future<void> addUserToFirestore() async {
-  var uid = FirebaseAuth.instance.currentUser?.uid;
-  var name = FirebaseAuth.instance.currentUser?.displayName;
-  var email = FirebaseAuth.instance.currentUser?.email;
-  var photourl = FirebaseAuth.instance.currentUser?.photoURL;
-  userRef.doc().set({
-    "uid" : uid,
-    "name" : name,
-    "email" : email,
-    "photo_url" : photourl
-
-  }
-  );
+Future<void> signout() async {
+  (await GoogleSignIn().signOut());
+  return FirebaseAuth.instance.signOut();
 }
-

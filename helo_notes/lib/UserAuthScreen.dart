@@ -13,7 +13,7 @@ class UserAuthScreen extends StatefulWidget {
 }
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
-final GoogleSignIn _googleSignIn = GoogleSignIn();
+
 
 class _UserAuthScreenState extends State<UserAuthScreen> {
   bool _isLoading = false;
@@ -89,10 +89,9 @@ class _UserAuthScreenState extends State<UserAuthScreen> {
                                 });
 
                                 signInWithGoogle().then((value) {
-                                  addUserToFirestore().then((value) => {
-                                        Navigator.of(context)
-                                            .pushReplacementNamed("/dashboard")
-                                      });
+                                  // addUserToFirestore().then((value) => {
+                                  Navigator.of(context)
+                                      .pushReplacementNamed("/dashboard");
                                 }).catchError((onError) {
                                   showDialog(
                                       context: context,
