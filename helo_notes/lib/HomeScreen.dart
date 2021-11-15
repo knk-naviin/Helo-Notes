@@ -4,18 +4,13 @@ import 'package:flutter/material.dart';
 
 import 'AuthManager.dart';
 
-
 class HomeScreen extends StatelessWidget {
   var photo = FirebaseAuth.instance.currentUser!.photoURL;
   var name = FirebaseAuth.instance.currentUser!.displayName;
   var email = FirebaseAuth.instance.currentUser!.email;
-  int _count = 1;
-
 
   @override
   Widget build(BuildContext context) {
-    // List<Widget> _contatos =
-    // new List.generate(_count, (int i) => new ContactRow());
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -46,7 +41,6 @@ class HomeScreen extends StatelessWidget {
                         value: 2,
                       ),
                       PopupMenuItem(
-
                         child: Text(email!),
                         value: 3,
                       ),
@@ -54,9 +48,9 @@ class HomeScreen extends StatelessWidget {
                           child: Center(
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            elevation: MaterialStateProperty.all(0),
-                              backgroundColor: MaterialStateProperty.all(
-                                  Colors.deepOrange)),
+                              elevation: MaterialStateProperty.all(0),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.deepOrange)),
                           onPressed: () {
                             signout().then((value) => {
                                   Navigator.of(context)
@@ -78,19 +72,29 @@ class HomeScreen extends StatelessWidget {
           splashColor: Colors.red,
           elevation: 0,
           backgroundColor: Colors.deepOrange,
-          onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => AddNote()),
-            // );
-          },
+          onPressed: () {},
           tooltip: "Add folder",
           child: Icon(Icons.add, color: Colors.white),
         ),
-        // body: ,
+        // body: Column(
+        //   children: [
+        //     Container(
+        //       width: double.infinity,
+        //       child: Padding(
+        //         padding: const EdgeInsets.all(8.0),
+        //         child: CupertinoSearchTextField(
+        //           backgroundColor: Colors.white,
+        //         ),
+        //       ),
+        //       decoration: BoxDecoration(
+        //           gradient: LinearGradient(
+        //               begin: Alignment.topLeft,
+        //               end: Alignment.bottomRight,
+        //               colors: <Color>[Colors.deepOrange, Colors.red])),
+        //     ),
+        //   ],
+        // ),
       ),
     );
-
   }
-
 }
